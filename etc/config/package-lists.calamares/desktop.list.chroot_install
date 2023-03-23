@@ -1,5 +1,4 @@
-ubuntu-sway-desktop
-ubuntu-sway-minimal
-ubuntu-sway-standard
-
-@XORG_HWE
+tileos-base
+tileos-desktop-common
+tileos-drivers
+tileos-desktop-@DESKTOP

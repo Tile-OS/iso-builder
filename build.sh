@@ -52,9 +52,6 @@ patch -d /usr/share/debootstrap/ < debootstrap-backport-zstd-support.patch
 # This prevents error with "Disk full" on the lb binary_grub-efi stage
 patch -d /usr/lib/live/build/ < increase_number_of_blocks.patch
 
-# Enable Lunar build in debootstrap
-ln -sfn /usr/share/debootstrap/scripts/gutsy /usr/share/debootstrap/scripts/lunar
-
 build () {
   BUILD_ARCH="$1"
 
@@ -107,9 +104,9 @@ build () {
     OUTPUT_DIR="$BUILDS_DIR/$BUILD_ARCH"
     mkdir -p "$OUTPUT_DIR"
     if [ "$CHANNEL" == dev ]; then
-      FNAME="ubuntusway-$VERSION-$CHANNEL-$YYYYMMDD-$OUTPUT_SUFFIX-$ARCH"
+      FNAME="tileos-$DESKTOP-$VERSION-$CHANNEL-$YYYYMMDD-$OUTPUT_SUFFIX-$ARCH"
     elif [ "$CHANNEL" == stable ]; then
-      FNAME="ubuntusway-$VERSION-$OUTPUT_SUFFIX-$ARCH"
+      FNAME="tileos-$DESKTOP-$VERSION-$OUTPUT_SUFFIX-$ARCH"
     else
       echo -e "Error: invalid channel name!"
     fi

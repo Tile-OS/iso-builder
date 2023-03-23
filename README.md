@@ -4,15 +4,14 @@ This ISO builder is fork of the good work from the elementary crew.  Many thanks
 
 ## Building Locally
 
-As Ubuntu Sway is built with the Debian version of live-build, not the Ubuntu patched version, it's easiest to build an Ubuntu Sway .iso in a Debian VM or container. This prevents messing up your host system too.
-
 The following example uses Docker and assumes you have Docker correctly installed and set up:
 
 Clone this project & cd into it:
 
-    git clone https://github.com/Ubuntu-Sway/iso-builder && cd iso-builder
+    git clone https://github.com/Tile-OS/iso-builder && cd iso-builder
 
-Configure the channel in the etc/terraform.conf (unstable, stable).
+Configure the channel in the etc/terraform.conf (dev, stable).
+Configue desktop in the /etc/terraform.conf (sway, river).
 
 Run the build:
 
