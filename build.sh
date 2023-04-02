@@ -33,7 +33,7 @@ dist="$(lsb_release -i -s)"
 
 if [ "$dist" == "Debian" ]; then
   apt-get install -y binutils patch zstd live-build
-  dpkg -i ./debs/ubuntu-keyring*.deb
+  dpkg -i ./debs/debian-keyring*.deb
 else
   apt-get install -y binutils patch zstd debootstrap
   dpkg -i ./debs/*.deb

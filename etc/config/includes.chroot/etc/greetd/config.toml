@@ -6,5 +6,5 @@ command = "cage -s -d -- regreet"
 user = "_greetd"
  
 [initial_session]
-command = "start-sway"
+command = "sway"
 user = "tileos"
