@@ -1,0 +1,10 @@
+[terminal]
+vt = 7
+
+[default_session]
+command = "tuigreet --remember --time --issue --asterisks --cmd start-sway"
+user = "_greetd"
+ 
+[initial_session]
+command = "start-sway"
+user = "tileos"

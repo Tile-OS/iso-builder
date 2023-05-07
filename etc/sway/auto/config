@@ -12,7 +12,7 @@ lb config noauto \
     --archive-areas "main contrib non-free non-free-firmware" \
     --parent-archive-areas "main contrib non-free non-free-firmware" \
     --linux-packages linux-image \
-    --bootappend-live "boot=live components username=tileos quiet splash" \
+    --bootappend-live "boot=live username=tileos quiet splash" \
     --mirror-bootstrap "$MIRROR_URL" \
     --parent-mirror-bootstrap "$MIRROR_URL" \
     --mirror-chroot-security "http://deb.debian.org/debian-security/" \
