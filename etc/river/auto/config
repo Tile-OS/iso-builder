@@ -1,0 +1,51 @@
+#!/bin/sh
+
+set -e
+
+. ./terraform.conf
+
+lb config noauto \
+    --architectures "$ARCH" \
+    --mode debian \
+    --distribution "$BASECODENAME" \
+    --parent-distribution "$BASECODENAME" \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --parent-archive-areas "main contrib non-free non-free-firmware" \
+    --linux-packages linux-image \
+    --bootappend-live "boot=live username=tileos quiet splash" \
+    --mirror-bootstrap "$MIRROR_URL" \
+    --parent-mirror-bootstrap "$MIRROR_URL" \
+    --mirror-chroot-security "http://deb.debian.org/debian-security/" \
+    --parent-mirror-chroot-security "http://deb.debian.org/debian-security/" \
+    --apt-source-archives false \
+    --parent-mirror-binary "$MIRROR_URL" \
+    --keyring-packages debian-keyring \
+    --apt-options "--yes --option Acquire::Retries=5 --option Acquire::http::Timeout=100" \
+    --cache-packages false \
+    --checksums md5 \
+    --uefi-secure-boot enable \
+    --binary-images iso-hybrid \
+    --iso-application "$NAME" \
+    --iso-volume "$NAME" \
+    --firmware-chroot true \
+    --zsync false \
+    --security true \
+    --updates true \
+    --debootstrap-options="--extractor=ar" \
+    "${@}"
+
+# replace channel and suite
+sed -i "s/@CHANNEL/$CHANNEL/" config/archives/*.list*
+sed -i "s/@DEBIAN_VERSION/$DEBIAN_VERSION/" config/archives/*.list*
+
+# replace desktop
+sed -i "s/@DESKTOP/$DESKTOP/" config/package-lists.calamares/*.chroot_install
+sed -i "s/@DESKTOP/$DESKTOP/" config/package-lists.calamares/*.chroot_live
+
+DATE=$(date +%Y%m%d)
+sed -i "s/@CHANNEL/$CHANNEL/" config/includes.binary/.disk/info
+sed -i "s/@CODENAME/$CODENAME/" config/includes.binary/.disk/info
+sed -i "s/@ARCH/$ARCH/" config/includes.binary/.disk/info
+sed -i "s/@DISTRO_NAME/$NAME/" config/includes.binary/.disk/info
+sed -i "s/@VERSION/$VERSION/" config/includes.binary/.disk/info
+sed -i "s/@DATE/$DATE/" config/includes.binary/.disk/info

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "P: Begin executing remove-blacklisted-packages chroot hook..."
+
+apt-get autoremove --purge -f -q -y \
+	systemsettings \
+	zutty

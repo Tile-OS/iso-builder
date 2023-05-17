@@ -1,0 +1,31 @@
+prompt 0
+
+MENU HIDDEN
+MENU AUTOBOOT Booting TileOS live disk in # seconds
+timeout 50
+
+label live-@FLAVOUR@
+	menu label ^Start TileOS
+	menu default
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE@
+
+MENU SEPARATOR
+
+label live-failsafe
+	menu label Start TileOS (Safe Graphics)
+	set gfxpayload=keep
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE_FAILSAFE@
+
+MENU SEPARATOR
+
+label hd
+	menu label ^Boot from first hard disk
+	localboot 0x80
+MENU SEPARATOR
+LABEL power
+	MENU LABEL ^Power Off
+	COM32 poweroff.c32
