@@ -2,9 +2,9 @@
 vt = 7
 
 [default_session]
-command = "tuigreet --remember --time --issue --asterisks --cmd river"
+command = "tuigreet --remember --time --issue --asterisks --cmd start-river"
 user = "_greetd"
  
 [initial_session]
-command = "river"
+command = "start-river"
 user = "tileos"
