@@ -103,7 +103,7 @@ build () {
     YYYYMMDD="$(date +%Y%m%d%H%M)"
     OUTPUT_DIR="$BUILDS_DIR/$BUILD_ARCH"
     mkdir -p "$OUTPUT_DIR"
-    if [ "$CHANNEL" == dev ]; then
+    if [ "$CHANNEL" == testing ]; then
       FNAME="tileos-$DESKTOP-$VERSION-$CHANNEL-$YYYYMMDD-$OUTPUT_SUFFIX-$ARCH"
     elif [ "$CHANNEL" == stable ]; then
       FNAME="tileos-$DESKTOP-$VERSION-$OUTPUT_SUFFIX-$ARCH"

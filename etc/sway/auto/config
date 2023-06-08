@@ -31,12 +31,12 @@ lb config noauto \
     --zsync false \
     --security true \
     --updates true \
-    --debootstrap-options="--extractor=ar" \
+    --debootstrap-options="--extractor=ar --include=ca-certificates" \
     "${@}"
 
 # replace channel and suite
 sed -i "s/@CHANNEL/$CHANNEL/" config/archives/*.list*
-sed -i "s/@DEBIAN_VERSION/$DEBIAN_VERSION/" config/archives/*.list*
+sed -i "s/@BASECODENAME/$BASECODENAME/" config/archives/*.list*
 
 # replace desktop
 sed -i "s/@DESKTOP/$DESKTOP/" config/package-lists.calamares/*.chroot_install
