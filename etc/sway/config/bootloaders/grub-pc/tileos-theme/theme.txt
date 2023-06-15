@@ -1,9 +1,9 @@
 title-text: ""
 desktop-image: "background.png"
 desktop-color: "#000000"
-title-color: "#ffffff"
-title-font: "DejaVu Sans Bold 16"
-message-font: "Unifont Regular 16"
+title-color: "#cad3f5"
+title-font: "DejaVu Sans Bold 17"
+message-font: "Unifont Regular 17"
 
 terminal-left: "0"
 terminal-top: "0"
@@ -13,7 +13,7 @@ terminal-border: "0"
 
 # Logo image
 + image {
-	left = 50%-270
+	left = 50%-295
 	top = 50%-200
     file = "logo.png"
 }
@@ -26,21 +26,21 @@ terminal-border: "0"
         height = 20
         text = "@KEYMAP_SHORT@"
         align = "center"
-        color = "#ffffff"
+        color = "#cad3f5"
 	font = "DejaVu Sans Bold 14"
 }
 
 #boot menu
 + boot_menu {
-	left = 50%-125
+	left = 50%-120
 	width = 500
-	top = 50%+100
+	top = 50%+170
 	height = 300
 
 	item_font = "DejaVu Sans Bold 14"
-	item_color = "#999"
+	item_color = "#6e738d"
 	selected_item_font = "DejaVu Sans Bold 14"
-	selected_item_color= "#fff"
+	selected_item_color= "#cad3f5"
 
 	item_height = 26
 	item_padding = 0
@@ -51,11 +51,11 @@ terminal-border: "0"
 
 # Show a countdown message using the label component
 + label {
-  top = 55%
+  top = 65%
   left = 35%
   width = 30%
   align = "center"
   id = "__timeout__"
   text = "Booting in %d seconds"
-  color = "#f6f6f6"
+  color = "#cad3f5"
 }
