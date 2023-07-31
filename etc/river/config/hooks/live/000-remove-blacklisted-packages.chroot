@@ -4,6 +4,8 @@ echo "P: Begin executing remove-blacklisted-packages chroot hook..."
 
 apt-get autoremove --purge -f -q -y \
 	foot \
+	imagemagick \
+	imagemagick-* \
 	lxqt-qtplugin \
 	lxqt-notificationd \
 	systemsettings \
